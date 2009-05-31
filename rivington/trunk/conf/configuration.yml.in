@@ -1,0 +1,83 @@
+services:
+  - name: logger
+    class: Unto::Essex::StderrLogService
+    factory: Unto::Essex::SingletonFactory
+  - name: dispatcher
+    class: Unto::Essex::RestDispatcher
+    singleton: true
+  - name: template
+    class: Unto::Essex::TemplateToolkitService
+    pool-max: 50
+  - name: database
+    class: Unto::Essex::DatabaseService
+    pool-max: 50
+  - name: rivington
+    class: Unto::Rivington::RivingtonService
+  - name: site-info
+    class: Unto::Rivington::SiteInfoService
+    singleton: true;
+
+dispatcher:
+  dispatchers:
+    - path: /
+      service: rivington
+      get-handler: get_homepage
+      description: > 
+        Print the default Rivington homepage.  Takes optional 'url'
+        and 'hint' parameters
+    - path: /go/[id]/
+      service: rivington
+      description: Return a HTTP redirect to the URL matching the ID
+      get-handler: go_to_id
+    - path: /add/
+      service: rivington
+      get-handler: add_url
+      description: > 
+        Return a new short URL that will redirect to the original.  Takes
+        a required 'url' parameter, an optional 'hint', and an optional
+        'format' of 'xhtml' or 'text (default)'
+    - path: /hint/
+      service: rivington
+      description: >
+        Return a new hint for a given URL.  Takes a required 'url' 
+        parameter
+      get-handler: get_hint
+    - path: /decode/[id]
+      service: rivington
+      get-handler: get_decoded
+      description: >
+        Return the long URL that this id maps to.
+    - path: /dump/
+      service: rivington
+      get-handler: get_dump
+      description: Print out a dump of all the URLs.
+    - path: /api/
+      service: site-info
+      get-handler: get_api_html
+      description: Print the Rivington API
+    - path: /spam/
+      service: rivington
+      get-handler: get_spam
+      description: >
+        Return a list of spam ids.
+    - path: /spam/[id]
+      service: rivington
+      get-handler: set_spam
+      description: >
+        Mark this id as spam.
+
+template:
+  basedir: @ProjectRoot@/templates
+  compile-dir: /tmp/template-toolkit/
+
+site-info:
+  site-name: @SiteName@
+  project-root: @ProjectRoot@
+  project-name: @ProjectName@
+  project-path: @ProjectPath@
+
+database:
+  datasource: DBI:mysql:database=@ProjectName@
+  username: @ProjectName@
+  auth: @ProjectName@
+

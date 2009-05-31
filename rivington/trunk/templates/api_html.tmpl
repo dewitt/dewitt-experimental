@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>[% site_info.project_name FILTER ucfirst %] API documentation</title>
+    <link rel="stylesheet" href="$site_info.project_url/static/css/api.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <h1>API documentation for [% site_info.project_name FILTER ucfirst %]  on $site_info.site_name</h1>
+
+    <div class="intro">
+      <div class="note">
+        Note: All API URLs begin with:
+        <span class="url">$site_info.project_url</span>
+      </div>
+    </div>
+
+    <div class="dispatchers">
+      [% FOREACH dispatcher = dispatchers %]
+      <div class="dispatcher">
+        <span class="description">
+          $dispatcher.description:
+        </span>
+        <div class="api">
+          <span class="method">
+          [% FOREACH method = dispatcher.methods %]
+            $method
+          [% END %]
+          </span>
+          <span class="url">$dispatcher.path</span>
+        </div>
+      </div>
+      [% END %]
+    </div>
+
+  </body>
+</html>
+

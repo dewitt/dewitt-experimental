@@ -1,0 +1,16 @@
+Build.PL
+conf/configuration.yml.in
+conf/httpd.conf.in
+htdocs/css/api.css
+htdocs/css/rivington.css
+lib/startup.pl.in
+lib/Unto/Rivington.pm
+lib/Unto/Rivington/RivingtonService.pm
+lib/Unto/Rivington/SiteInfoService.pm
+LICENSE
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
+README
+templates/api_html.tmpl
+templates/rivington.tmpl

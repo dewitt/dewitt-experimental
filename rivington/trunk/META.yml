@@ -1,0 +1,20 @@
+---
+name: Unto-Rivington
+version: 0.1
+author: ~
+abstract: ~
+license: perl
+requires:
+  Apache2::RequestRec: 2.0
+  Apache::Test: 1.25
+  Template: 2.14
+  Unto::Essex: 0.8
+provides:
+  Unto::Rivington:
+    file: lib/Unto/Rivington.pm
+    version: 0.1
+  Unto::Rivington::RivingtonService:
+    file: lib/Unto/Rivington/RivingtonService.pm
+  Unto::Rivington::SiteInfoService:
+    file: lib/Unto/Rivington/SiteInfoService.pm
+generated_by: Module::Build version 0.261

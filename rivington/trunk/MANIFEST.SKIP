@@ -1,0 +1,14 @@
+^_build
+^Build$
+^blib
+~$
+\.bak$
+\bsvn\b
+\#.*?\#
+\.\#
+^t/TEST$
+\.disabled$
+
+
+
+

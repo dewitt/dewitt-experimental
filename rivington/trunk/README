@@ -1,0 +1,40 @@
+---------------
+Unto::Rivington
+---------------
+
+Rivington is a URL redirector.
+
+------------
+Installation
+------------
+
+First, install the Unto::Essex packages.  
+
+Then run:
+
+   $ perl ./Build.PL
+   $ ./Build
+   $ ./Build test
+   $ sudo ./Build install
+
+Then add the following lines to your httpd.conf:
+
+  Include /usr/local/apache2/rivington/conf/httpd.conf
+
+
+Create the rivington database (this may vary depending on your system):
+
+  $ mysql --user=root -p mysql -e 'CREATE DATABASE rivington'
+  $ mysql --user=root -p mysql -e "GRANT ALL PRIVILEGES ON rivington.* TO rivington@localhost IDENTIFIED BY 'rivington'"
+
+Initialize the table:
+
+  $ mysql --user=rivington -p < data/rivington.sql
+
+Backing up the database:
+
+  $ mysqldump --user=rivington -p > rivington.sql
+
+
+--
+Copyright (C) 2005 DeWitt Clinton, All Rights Reserved

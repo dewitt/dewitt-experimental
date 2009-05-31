@@ -1,0 +1,31 @@
+PerlRequire @ProjectName@/lib/startup.pl
+
+<VirtualHost *:80>
+  ServerName @ProjectPath@.@SiteName@
+
+  ErrorLog logs/@ProjectName@-error_log
+  CustomLog logs/@ProjectName@-access_log combined
+
+  RedirectMatch ^/$ /-/
+  RedirectMatch ^/-$ /-/
+
+  RewriteEngine On
+  RewriteLog logs/@ProjectName@-rewrite_log
+  RewriteLogLevel 0
+  RewriteRule ^/(\w+)$ /-/go/$1 [QSA,R]
+
+  Alias /-/static/ @ServerRoot@/@ProjectName@/htdocs/
+
+  <Location /-/ >
+   SetHandler perl-script
+   PerlSetVar EssexConfiguration @ProjectName@/conf/configuration.yml
+   PerlResponseHandler  Unto::Essex::ModPerlApplication
+  </Location>
+
+  <Location /-/static/>
+   SetHandler default
+  </Location>
+
+</VirtualHost>
+
+

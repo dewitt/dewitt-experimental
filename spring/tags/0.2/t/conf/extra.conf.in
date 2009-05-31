@@ -1,0 +1,8 @@
+PerlSwitches -w
+
+<Location /spring-test/>
+  SetHandler perl-script
+  PerlResponseHandler  Unto::Essex::ModPerlApplication
+  PerlSetVar EssexConfiguration @ServerRoot@/conf/configuration.yml
+</Location>
+

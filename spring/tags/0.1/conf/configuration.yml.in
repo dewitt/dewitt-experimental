@@ -1,0 +1,142 @@
+services:
+  - name: logger
+    class: Unto::Essex::StderrLogService
+    factory: Unto::Essex::SingletonFactory
+  - name: dispatcher
+    class: Unto::Essex::RestDispatcher
+    singleton: true
+  - name: template
+    class: Unto::Essex::TemplateToolkitService
+    pool-max: 50
+  - name: cache
+    class: Unto::Essex::CacheService
+  - name: aws
+    class: Unto::Spring::AwsService
+  - name: site-info
+    class: Unto::Spring::SiteInfoService
+    singleton: true;
+  - name: url
+    class: Unto::Essex::UrlService
+  - name: xslt
+    class: Unto::Essex::XsltService
+
+dispatcher:
+  dispatchers:
+    - path: /aws/aws/[searchIndex]/[searchTerms]
+      service: aws
+      get-handler: get_aws
+    - path: /aws/osrss/[searchIndex]/[searchTerms]
+      service: aws
+      get-handler: get_osrss
+    - path: /aws/osd/[searchIndex]
+      service: aws
+      get-handler: get_osd
+    - path: /aws/osd
+      service: aws
+      get-handler: get_osd_list
+
+site-info:
+  site-name: @SiteName@
+  project-root: @ProjectRoot@
+
+cache:
+  namespace: spring-aws
+  default_expires_in: 1 hour
+
+url:
+  timeout: 10
+
+template:
+  basedir: @ProjectRoot@/templates
+  compile-dir: /tmp/template-toolkit
+
+aws:
+  site-name: @SiteName@
+  search-indexes:
+    Apparel:
+      description: Apparel
+      sample: Levis
+      date-sort: -launch-date
+    Baby:
+      description: Baby Gear
+      sample: Crib
+    Beauty:
+      description: Beauty
+      sample: Soap
+      date-sort: -launch-date
+    Books:
+      description: Books
+      sample: Harry Potter
+      date-sort: daterank
+    Classical:
+      description: Classical
+      sample: Shostakovich
+      date-sort: orig-rel-date
+    PCHardware:
+      description: Computers
+      sample: Shure Headphones
+    DigitalMusic:
+      description: MP3s
+      sample: Bach
+      date-sort: uploaddaterank
+    DVD:
+      description: DVDs
+      sample: The Office
+      date-sort: -video-release-date
+    Electronics:
+      description: Electronics
+      sample: ipod
+    GourmetFood:
+      description: Food
+      sample: Fruit
+      date-sort: launch-date
+    HealthPersonalCare:
+      description: Health
+      sample: Loofa
+      date-sort: launch-date
+    Jewelry:
+      description: Jewelry
+      sample: Necklace
+      date-sort: launch-date
+    Kitchen:
+      description: Cooking
+      sample: Knife
+    Magazines:
+      description: Magazines
+      sample: Sports Illustrated
+      date-sort: daterank
+    Merchants:
+      description: Merchants
+      sample: Gibson Les Paul
+      date-sort: -launch-date
+    Music:
+      description: Music
+      sample: Bloc Party
+      date-sort: orig-rel-date
+    MusicalInstruments:
+      description: Instruments
+      sample: Fender Strat
+      date-sort: -launch-date
+    OfficeProducts:
+      description: Office
+      sample: Moleskine
+    OutdoorLiving:
+      description: Outdoor
+      sample: Swiss Army
+    Photo:
+      description: Camera Gear
+      sample: Nikon D70
+    Toys:
+      description: Toys
+      sample: Sesame Street
+    Software:
+      description: Software
+      sample: Mac OS X Tiger
+    SportingGoods:
+      description: Sports
+      sample: Umbro
+      date-sort: launch-date
+    VideoGames:
+      description: Video Games
+      sample: Grand Theft Auto
+

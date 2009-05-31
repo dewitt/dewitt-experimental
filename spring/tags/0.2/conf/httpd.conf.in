@@ -1,0 +1,16 @@
+PerlRequire @ProjectName@/lib/startup.pl
+
+Alias /@ProjectName@/static/ @ServerRoot@/@ProjectName@/htdocs/
+
+<Location /@ProjectName@/>
+  SetHandler perl-script
+  PerlSetVar EssexConfiguration @ProjectName@/conf/configuration.yml
+  PerlResponseHandler  Unto::Essex::ModPerlApplication
+</Location>
+
+<Location /@ProjectName@/static/>
+  SetHandler default
+</Location>
+
+
+

@@ -1,0 +1,29 @@
+------------
+Unto::Spring
+------------
+
+Spring is a set of services that can make and display OpenSearch search
+results.  Current included is Amaazon's AWS search.  Soon to be included
+are Google's web search and Yahoo's web search.  
+
+------------
+Installation
+------------
+
+First, install the Unto::Essex packages.  
+
+Then run:
+
+   $ perl ./Build.PL
+   $ ./Build
+   $ ./Build test
+   $ sudo ./Build install
+
+Then add the following lines to your httpd.conf:
+
+  PerlSetVar AwsSubscriptionId [Your AWS Subscription ID]
+  Include /usr/local/apache2/spring/conf/httpd.conf
+
+
+--
+Copyright (C) 2005 DeWitt Clinton, All Rights Reserved

@@ -1,0 +1,4 @@
+
+use lib qw( @ServerRoot@/spring/lib );
+
+1;

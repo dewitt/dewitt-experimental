@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <Url type="application/rss+xml"
+       template="$site_info.project_url/amazon/product/opensearch/$search_index.name/{searchTerms}/{startPage}"/>
+  <Url type="text/html"
+       template="$site_info.project_url/amazon/product/html/$search_index.name/{searchTerms}/{startPage}"/>
+  <Format>http://a9.com/-/spec/opensearch/1.1/</Format>
+  <ShortName>$search_index.description</ShortName>
+  <LongName>Search for $search_index.description on $site_info.site_name</LongName>
+  <Description>Search for $search_index.description on $site_info.site_name using Amazon Web Services.</Description>
+  <Tags>amazon aws $site_info.site_name $search_index.short_name products</Tags>
+  [% IF search_index.image_url %]<Image>$search_index.image_url</Image>[% END %]
+  <Query role="example" searchTerms="$search_index.sample"/>
+  <Developer>DeWitt Clinton</Developer>
+  <Contact>dewitt@unto.net</Contact>
+  <Attribution>Product data Copyright 2005, Amazon, Inc, All Rights Reserved.  Spring OSRSS interface Copyright 2005, DeWitt Clinton, All Rights Reserved.</Attribution>
+  <SyndicationRight>open</SyndicationRight>
+  <AdultContent>false</AdultContent>
+</OpenSearchDescription>
+

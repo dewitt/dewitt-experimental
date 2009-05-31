@@ -1,0 +1,20 @@
+---
+name: Unto-Spring
+version: 0.1
+author: ~
+abstract: ~
+license: perl
+requires:
+  Apache2::RequestRec: 2.0
+  Apache::Test: 1.25
+  Template: 2.14
+  Unto::Essex: 0.4
+provides:
+  Unto::Spring:
+    file: lib/Unto/Spring.pm
+    version: 0.1
+  Unto::Spring::AwsService:
+    file: lib/Unto/Spring/AwsService.pm
+  Unto::Spring::Build:
+    file: lib/Unto/Spring/Build.pm
+generated_by: Module::Build version 0.261

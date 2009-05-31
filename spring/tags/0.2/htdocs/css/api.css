@@ -1,0 +1,62 @@
+body 
+{
+  font-size: 75%; /* Resets 1em to 12px */
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  color: #222222;
+  background-color: #EEEEEE; 
+}
+
+h1
+{
+  text-align: center;
+  border: thin solid black;
+  background-color: #FFFFFF;
+  padding: 5px 0 5px 0;
+}
+
+.note
+{
+  padding: 5px 5px 5px 15px;
+  border: thin solid #333333;
+  background-color: #DDDDDD;
+}
+
+.intro
+{
+  margin-top: 10px;
+}
+
+.url
+{
+  font-family: fixed;
+  font-size: 1.2em;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.dispatchers
+{
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #FFFFFF;
+  border: thin solid #333333;
+}
+
+.dispatcher
+{
+  margin: 5px;
+  padding: 5px;
+  border: thin solid #CCCCCC;
+}
+
+.api
+{
+  padding-left: 20px;
+  margin: 15px 0 15px 0;
+}
+
+.description
+{
+  color: #333333;
+} 
+

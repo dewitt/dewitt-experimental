@@ -1,0 +1,23 @@
+Build.PL
+conf/configuration.yml.in
+conf/httpd.conf.in
+doc/sloccount.txt
+htdocs/images/aws_books.gif
+htdocs/images/aws_electronics.gif
+htdocs/images/aws_music.gif
+htdocs/images/aws_photo.gif
+htdocs/images/aws_software.gif
+htdocs/xsl/aws2osrss-desc.xsl
+htdocs/xsl/aws2osrss-pric.xsl
+htdocs/xsl/aws2osrss-prod.xsl
+lib/startup.pl.in
+lib/Unto/Spring.pm
+lib/Unto/Spring/AwsService.pm
+lib/Unto/Spring/SiteInfoService.pm
+LICENSE
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
+README
+t/conf/extra.conf.in
+templates/osd.tmpl

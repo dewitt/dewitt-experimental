@@ -1,0 +1,26 @@
+This is a LES project template.  
+
+Build your own LES project by running:
+
+  $ svn export http://svn.unto.net/svn/public/les/trunk [PROJECT_NAME]
+
+
+Edit [PROJECT_NAME]/Build.PL and add values for:
+ 
+  $PROJECT_NAME   (e.g., 'delancey')
+  $SITE_NAME      (e.g., 'unto.net')
+  $PACKAGE        (e.g., 'Unto' )
+
+Run:
+
+  $ mkdir lib/[PACKAGE_NAME]
+  $ mv lib/Les.pm lib/[PACKAGE_NAME]/[UC_PROJECT_NAME].pm
+
+Edit lib/[PACKAGE_NAME]/[UC_PROJECT_NAME].pm and fill in the missing
+information.
+
+Start adding packages unde lib/[PACKAGE_NAME]/.  Add web service
+calls to conf/configuration.yml.in.  Add files under htdocs, templates
+under templates, etc.
+
+Oh, and edit this file as well.

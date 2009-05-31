@@ -1,4 +1,0 @@
-#!/bin/sh
-
-mysql --user=delancey -pdelancey delancey -e \
-  "SELECT url_hash, SUM( count ) AS Total FROM bookmarks WHERE username_hash != 'c9e49d77540f320bc5e5742bf860a810' GROUP BY url_hash ORDER BY Total DESC LIMIT 10";

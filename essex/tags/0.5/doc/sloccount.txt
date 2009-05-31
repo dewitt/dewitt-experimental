@@ -1,0 +1,49 @@
+Have a non-directory at the top, so creating directory top_dir
+Adding /home/dewitt/src/essex/./Build to top_dir
+Adding /home/dewitt/src/essex/./Build.PL to top_dir
+Adding /home/dewitt/src/essex/./INSTALL to top_dir
+Adding /home/dewitt/src/essex/./LICENSE to top_dir
+Adding /home/dewitt/src/essex/./MANIFEST to top_dir
+Adding /home/dewitt/src/essex/./MANIFEST.SKIP to top_dir
+Adding /home/dewitt/src/essex/./MANIFEST.bak to top_dir
+Adding /home/dewitt/src/essex/./META.yml to top_dir
+Adding /home/dewitt/src/essex/./Makefile.PL to top_dir
+Adding /home/dewitt/src/essex/./README to top_dir
+Creating filelist for _build
+Creating filelist for doc
+Creating filelist for lib
+Creating filelist for t
+Categorizing files.
+Finding a working MD5 command....
+Found a working MD5 command.
+Computing results.
+
+
+SLOC	Directory	SLOC-by-Language (Sorted)
+1390    lib             perl=1390
+323     t               perl=323
+85      top_dir         perl=85
+0       _build          (none)
+0       doc             (none)
+
+
+Totals grouped by language (dominant language first):
+perl:          1798 (100.00%)
+
+
+
+
+Total Physical Source Lines of Code (SLOC)                = 1,798
+Development Effort Estimate, Person-Years (Person-Months) = 0.37 (4.44)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.37 (4.41)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 1.01
+Total Estimated Cost to Develop                           = $ 50,023
+ (average salary = $56,286/year, overhead = 2.40).
+SLOCCount, Copyright (C) 2001-2004 David A. Wheeler
+SLOCCount is Open Source Software/Free Software, licensed under the GNU GPL.
+SLOCCount comes with ABSOLUTELY NO WARRANTY, and you are welcome to
+redistribute it under certain conditions as specified by the GNU GPL license;
+see the documentation for details.
+Please credit this data as "generated using David A. Wheeler's 'SLOCCount'."

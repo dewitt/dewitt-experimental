@@ -1,0 +1,54 @@
+---
+name: Unto-Essex
+version: 0.4
+author:
+  - 'Author: DeWitt Clinton <dewitt@unto.net>'
+abstract: ~
+license: perl
+requires:
+  Error: 0.15
+  YAML: 0.39
+  perl: 5.8
+recommends:
+  Apache2::RequestRec: 2.0
+  Apache::Test: 1.25
+  Cache::Cache: 1.04
+  DBI: 1.40
+  Template: 2.14
+provides:
+  Unto::Essex:
+    file: lib/Unto/Essex.pm
+    version: 0.4
+  Unto::Essex::AbstractService:
+    file: lib/Unto/Essex/AbstractService.pm
+  Unto::Essex::Assert:
+    file: lib/Unto/Essex/Assert.pm
+  Unto::Essex::CacheService:
+    file: lib/Unto/Essex/CacheService.pm
+  Unto::Essex::ConfigurationParser:
+    file: lib/Unto/Essex/ConfigurationParser.pm
+  Unto::Essex::DatabaseService:
+    file: lib/Unto/Essex/DatabaseService.pm
+  Unto::Essex::HelloService:
+    file: lib/Unto/Essex/HelloService.pm
+  Unto::Essex::ModPerlApplication:
+    file: lib/Unto/Essex/ModPerlApplication.pm
+  Unto::Essex::Object:
+    file: lib/Unto/Essex/Object.pm
+  Unto::Essex::RestDispatcher:
+    file: lib/Unto/Essex/RestDispatcher.pm
+  Unto::Essex::ServiceManager:
+    file: lib/Unto/Essex/ServiceManager.pm
+  Unto::Essex::ServicePool:
+    file: lib/Unto/Essex/ServicePool.pm
+  Unto::Essex::SimpleFactory:
+    file: lib/Unto/Essex/SimpleFactory.pm
+  Unto::Essex::SingletonFactory:
+    file: lib/Unto/Essex/SingletonFactory.pm
+  Unto::Essex::StderrLogService:
+    file: lib/Unto/Essex/StderrLogService.pm
+  Unto::Essex::TemplateToolkitService:
+    file: lib/Unto/Essex/TemplateToolkitService.pm
+  property:
+    file: lib/property.pm
+generated_by: Module::Build version 0.261

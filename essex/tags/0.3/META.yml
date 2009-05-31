@@ -1,0 +1,12 @@
+---
+name: Unto-Essex
+version: 0.1
+author: ~
+abstract: ~
+license: perl
+requires:
+  perl: 5.8.6
+provides:
+  Unto::Essex::DataType:
+    file: lib/Unto/Essex/DataType.pm
+generated_by: Module::Build version 0.261

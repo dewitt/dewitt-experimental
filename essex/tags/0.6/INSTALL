@@ -1,0 +1,53 @@
+--------
+Manually
+--------
+
+Essex uses the newer and more advanced Module::Build rather than the
+old ExtUtils::MakeMaker.  Also, both building and running Essex depend
+on the YAML library.  To install these dependencies run:
+
+   $ sudo cpan YAML Module::Build
+
+The optional CPAN requirements can be installed with:
+
+   $ sudo cpan Template
+
+The more involved optional requirements, such as mod_perl can
+be installed with:
+
+   $ wget http://perl.apache.org/dist/mod_perl-2.0-current.tar.gz
+   $ tar zxvf ../archives/mod_perl-2.0-current.tar.gz
+   $ mod_perl-2.0.0
+   $ perl Makefile.PL MP_APXS=/usr/local/apache2/bin/apxs
+   $ make
+   $ sudo make install
+
+And:
+
+   $ wget http://search.cpan.org/CPAN/authors/id/J/JO/JOESUF/libapreq2-2.05-dev.tar.gz
+   $ tar zxvf ../archives/libapreq2-2.05-dev.tar.gz
+   $ cd libapreq2-2.05-dev
+   $ perl Makefile.PL --with-apache2-apxs=/usr/local/apache2/bin/apxs
+   $ make
+   $ sudo make install
+
+
+Build Unto::Essex:
+
+   $ perl Build.PL
+   $ ./Build
+   $ ./Build test
+   $ sudo ./Build install
+
+--------
+Mac OS X
+--------
+
+First, make sure that the Developer Tools are installed.  This can 
+be found on the Mac OS X DVD under "XCode Tools".  You must do this
+before running CPAN for the first time so that all of the compiler
+paths are found.  If not, run "cpan" and "o conf init" again.
+
+--
+Copyright (C) 2005 DeWitt Clinton, All Rights Reserved
+

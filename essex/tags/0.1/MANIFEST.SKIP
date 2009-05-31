@@ -1,0 +1,11 @@
+^_build
+^Build$
+^blib
+~$
+\.bak$
+^Unto-Essex
+\bsvn\b
+\#.*?\#
+\.\#
+
+

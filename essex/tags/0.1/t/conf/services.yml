@@ -1,0 +1,17 @@
+services:
+  - role: logger
+    class: Unto::Essex::StderrLogService
+    factory: Unto::Essex::SingletonFactory
+  - role: hello
+    class: Unto::Essex::HelloService
+    factory: Unto::Essex::SimpleFactory
+  - role: pooled-hello
+    class: Unto::Essex::HelloService
+    pool-max: 10
+  - role: singleton-hello
+    class: Unto::Essex::HelloService
+    singleton: true
+
+
+
+

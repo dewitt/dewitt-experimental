@@ -1,0 +1,63 @@
+services:
+  - name: logger
+    class: Unto::Essex::StderrLogService
+    factory: Unto::Essex::SingletonFactory
+  - name: hello
+    class: Unto::Essex::HelloService
+    factory: Unto::Essex::SimpleFactory
+  - name: pooled-hello
+    class: Unto::Essex::HelloService
+    pool-max: 10
+  - name: singleton-hello
+    class: Unto::Essex::HelloService
+    singleton: true
+  - name: dispatcher
+    class: Unto::Essex::RestDispatcher
+    singleton: true
+  - name: template-toolkit
+    class: Unto::Essex::TemplateToolkitService
+  - name: test-database
+    class: Unto::Essex::DatabaseService
+  - name: cache
+    class: Unto::Essex::CacheService
+  - name: url
+    class: Unto::Essex::UrlService
+  - name: xslt
+    class: Unto::Essex::XsltService
+
+dispatcher:
+  dispatchers:
+    - path: /hello/
+      service: hello
+    - path: /hello/[salutation]/
+      service: hello
+      handler: say_something
+    - path: /goodbye/[salutation]/
+      service: hello
+      handler: say_something
+      post-handler: say_something_different
+      put-handler: say_something_interesting
+    - path: /hello/[salutation]/hello/
+      service: hello
+    - path: /http-hello/[salutation]/
+      service: hello
+      handler: http_salutation
+
+cache:
+  namespace: essex
+  default_expires_in: 1 hour  
+
+url:
+  timeout: 10
+
+hello:
+  foo: bar
+
+test-database:
+  datasource: 
+  username:
+  auth:
+
+
+
+

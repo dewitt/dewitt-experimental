@@ -1,0 +1,28 @@
+--------
+Manually
+--------
+
+Essex uses the newer and more advanced Module::Build rather than the
+old ExtUtils::MakeMaker.  Also, both building and running Essex depend
+on the YAML library.  To install these dependencies run:
+
+   $ sudo cpan YAML Module::Build
+
+Build Unto::Essex:
+
+   $ perl Build.PL
+   $ ./Build
+   $ ./Build test
+   $ sudo ./Build install
+
+--------
+Mac OS X
+--------
+
+First, make sure that the Developer Tools are installed.  This can 
+be found on the Mac OS X DVD under "XCode Tools".  You must do this
+before running CPAN for the first time so that all of the compiler
+paths are found.  If not, run "cpan" and "o conf init" again.
+
+
+

@@ -1,0 +1,142 @@
+-----------
+Unto::Essex
+-----------
+
+A set of classes that implement a lightweight component manager and
+data type utilies.
+
+
+--------
+Overview
+--------
+
+At it's core, Essex is a way of instantiating and managing components
+and services.  A service can be any Perl object, but the real value is
+when those objects support lifecycle methods such as configure,
+initialize, and dispose.  The service manager can then take
+responsibility for instantiating and keeping track of each service,
+including pooling and cascading cleanup methods.
+
+Services are looked up by a symbolic name called a role.  The role can
+be the same as the class name, but it is typically to assign a short
+name as an alias for any given service.  For example, the role
+"logger" might be mapoed to the StderrLogService in a configuration
+file, but in the code it will always be referred to as "logger."
+
+There is typically only one service manager per application, and
+it is instantiated with a path to the service mappings and a path
+to general configuration variables.
+
+For example:
+
+  use Unto::Essex::ServiceManager;
+  use constant SERVICES => 'conf/services.yml';
+  use constant CONF => 'conf/configuration.yml';
+ 
+  my $manager = new Unto::Essex::ServiceManager( SERVICES, CONF );
+
+Once instantiated the service manager can be used to retrieve an
+instance of any service it knows about.  For example:
+
+  my $logger = $manager->lookup( 'logger' );
+
+The service can be used like any normal Perl object, but when it is
+no longer needed, it should be returned to the manager.  For example:
+
+  $manager->release( $logger );
+
+When the application is done with the service manager, it should be
+informed that it can finish cleaning up.  For example:
+
+  $manager->dispose( );
+
+---------
+Lifecycle
+---------
+
+The lifecycle of a service consists of:
+
+   new (instantiate, via factory)
+   configure
+   service
+   initialize
+   recycle (if pooled)
+   dispose
+
+(In the future, more lifecycle methods, such as start and stop for 
+threaded services, or parameterize or contextualize may be added.)
+
+
+--------
+Services
+--------
+
+The easiest way to create a service is to extend the abstract base
+class.  This base class implements each of of the lifecycle methods
+and provides some useful utility methods.  For example:
+
+  package MyService;
+ 
+  use base qw( Unto::Essex::AbstractService );
+
+The service may now override any of the lifecycle methods.  However
+care must be taken to call the superclass method as well.  For
+example:
+
+  sub configure
+  {
+    my ( $self, $configuration ) = @_;
+    $self->SUPER::configure( $configuration );
+    # do something else...
+  }
+
+
+---------
+Factories
+---------
+
+Not all objects are instantiated the same.  To help with this, each
+service can specify a custom factory in the configuration file.  If
+no factory is specified then a default factory will be used to
+simply invoke the service's new method.
+
+
+-------------
+Configuration
+-------------
+
+Services are configured using YAML formatted text files.  A simple
+services.yml file could look like:
+
+   services:
+     - role: logger
+       class: Unto::Essex::StderrLogService
+     - role: hello
+       class: Unto::Essex::HelloService
+     - role: pooled-hello
+       class: Unto::Essex::HelloService
+       pool-max: 10
+
+Also, the "configure" lifecycle method will supply a Perl hash 
+generated from the YAML formatted configuration file that is
+passed to the service manager.
+
+
+
+----------- Source Code -----------
+
+The latest source code can be checked out using Subversion.  First,
+install a client binary from:
+
+  http://subversion.tigris.org/project_packages.html
+
+Then run:
+
+  $ svn co http://svn.unto.net/svn/public/essex/trunk essex
+
+
+
+
+--
+Copyright (C) 2005 DeWitt Clinton <dewitt@unto.net> All Rights Reserved
+

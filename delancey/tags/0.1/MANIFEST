@@ -1,0 +1,23 @@
+Build.PL
+conf/configuration.yml.in
+conf/httpd.conf.in
+htdocs/css/api.css
+htdocs/css/delancey-0.1.css
+htdocs/images/delancey_logo.jpg
+htdocs/js/delancey-0.1.js
+htdocs/js/fixed.js
+htdocs/js/md5-2.2alpha.js
+htdocs/js/prototype-1.4.0_rc4.js
+lib/startup.pl.in
+lib/Unto/Delancey.pm
+lib/Unto/Delancey/Build.pm
+lib/Unto/Delancey/ContentService.pm
+lib/Unto/Delancey/DelanceyService.pm
+LICENSE
+MANIFEST			This list of files
+MANIFEST.SKIP
+META.yml
+README
+templates/api_html.tmpl
+templates/delancey.tmpl
+tools/custom_rhino.jar

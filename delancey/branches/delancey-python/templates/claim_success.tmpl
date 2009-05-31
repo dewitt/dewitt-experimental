@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+ <head>
+  <title>Unto.net &gt; Delancey &gt; $username &gt; Claim &gt; Complete</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link rel="stylesheet" type="text/css" 
+        href="$site_info.project_url/static/css/delancey-0.1.css" />
+  <script type="text/javascript" 
+          src="$site_info.project_url/static/js/prototype-1.4.0_rc4.js"></script>
+ </head>
+
+ <body>
+
+
+  <div class="explanation">
+
+   <h2><a href="http://www.unto.net/">Unto.net</a> &gt; <a href="$site_info.project_url">Delancey</a> &gt; $username &gt; Claim &gt; Complete</h2>
+
+   <p>
+    These forms will allow you to claim the del.icio.us username
+    <strong>$username</strong> on Delancey.
+   </p>
+
+  </div>
+
+  <div class="tasks">
+
+   <h3>Steps:</h3>
+
+   <p>Folow these three steps to claim <strong>$username</strong> as your Delancey username.</p>
+
+   <div class="completed-task task">
+    <p><h4>Step 1:</h4> Choose a Delancey password.  Completed.</p>
+   </div>
+
+   <div class="completed-task task">
+    <p><h4>Step 2:</h4> Verify your del.icio.us username.  Completed.</p>
+   </div>
+
+   <div class="active-task task">
+    <p><h4>&raquo; Step 3:</h4> Please complete the claim.</p>
+  
+    <p>
+     Congratulations, you have successfully claimed 
+     <strong>$username</strong> as your Delancey username.  You may
+     now:
+    </p>
+
+    <p>
+      <a class="return-link" href="$site_info.project_url/start/">Return To Delancey</a>
+    </p>
+
+    <p>
+     After your cached copy of the page expires you will be prompted
+     for your username and password.  From now on, only you will be
+     allowed to view or modify your bookmark counts.
+    </p>
+
+    <p>But before you continue, you may wish to delete the temporary 
+     del.icio.us bookmark that was created to verify your claim.  Do
+     so by clicking the button below or by returning to <a
+     href="http://del.icio.us/$username/">http://del.icio.us/$username/</a> 
+     and deleting it by hand.</p>
+
+     <form id="delete-claim" method="post" action="http://del.icio.us/$username/">
+     <input type="hidden" name="delete" value="$claim_url_hash"/>
+     <input type="hidden" name="oldurl" value="$site_info.project_url/start/"/>
+     <input type="hidden" name="jump" value="$site_info.project_url/start/"/>
+     <input id="delete-claim-submit" class="form-submit" type="submit" value="Delete temporary claim URL"/> 
+    </form>
+
+    <p>
+     If at any point you would like to change your password please do so by
+     <a href="$site_info.project_url/claim/choose/$username">renewing your
+     claim</a>.
+    </p>
+
+  </div>
+
+
+  <div class="explanation">
+
+   <h3>Explanation:</h3>
+
+   <p>
+    You are about to stake a claim on the username
+    <strong>$username</strong> at Delancey.  This means that you, and
+    only you, can update Delancey information using the username
+    <strong>$username</strong>.  But first, you are required to
+    demonstrate that you are
+    <strong>$username</strong> at del.icio.us.
+   </p>
+
+   <p>
+    This process has three steps.  First, you will choose a Delancey
+    password and send it to the Delancey servers. This password should
+    not be the same as your del.icio.us password.
+   </p>
+
+   <p>
+    Second, you will need need to prove to the Delancey server that
+    you are <strong>$username</strong> at del.icio.us.  You will do
+    this by using del.icio.us to bookmark a unique URL for Delancey.
+   </p>
+
+   <p>
+    Third, you can complete your claim
+    <strong>$username</strong> on Delancey.  If you ever need to
+    reset your password, just return to <a
+    href="$site_info.project_url/claim/choose/$username">the claim
+    page</a> and try again.
+   </p>
+
+  </div>
+
+ </body>
+</html>

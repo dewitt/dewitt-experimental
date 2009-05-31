@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+ <head>
+  <title>Unto.net &gt; Delancey</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+  <link rel="stylesheet" type="text/css" 
+        href="$site_info.project_url/static/css/delancey-0.1.css" />
+  <script type="text/javascript" 
+          src="$site_info.project_url/static/js/md5-2.2alpha.js"></script>
+  <script type="text/javascript" 
+          src="$site_info.project_url/static/js/prototype-1.4.0_rc4.js"></script>
+  <script type="text/javascript"
+          src="$site_info.project_url/static/js/delancey-0.1.js"></script>
+  <script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script>
+  <script type="text/javascript">_uacct = "UA-68277-1"; urchinTracker();</script>
+  <script type="text/javascript"><!--
+  var serverTime = [% server_time ? server_time : 0 %];
+  var baseUrl = "$base_url";
+  var delanceyClaim = '$delanceyClaim';
+  var username = '$username';
+  var tag = '$tag';
+//--></script>
+
+ </head>
+
+ <body>
+
+  <div id="header">
+   <form method="get" action="http://www.google.com/custom">
+    <fieldset>
+     <a href="$site_info.project_url/start"><img src="$site_info.project_url/static/images/delancey_logo.jpg" alt="Delancey"/></a> 
+     <input id="search-input" class="form-text-input" type="text" name="q" size="31" maxlength="255" value="" tabindex="4"></input>
+     <input class="form-submit" type="submit" name="sa" value="Web Search"></input>
+     <input type="hidden" name="client" value="pub-3230649185001151"></input>
+     <input type="hidden" name="forid" value="1"></input>
+     <input type="hidden" name="ie" value="ISO-8859-1"></input>
+     <input type="hidden" name="oe" value="ISO-8859-1"></input>
+     <input type="hidden" name="cof" value="GALT:#555555;GL:1;DIV:#EEEEEE;VLC:666666;AH:center;BGC:FFFFFF;LBGC:336699;ALC:222222;LC:222222;T:333333;GFNT:0000FF;GIMP:0000FF;LH:60;LW:140;L:$site_info.project_url/static/images/delancey_logo.jpg;S:$site_info.project_url;LP:1;FORID:1;"></input>
+     <input type="hidden" name="hl" value="en"></input>
+    </fieldset>
+   </form>
+  </div>
+
+  <div id="debug"></div>
+
+  <div id="content">
+   <div id="password-dialog">
+    <h4>Delancey Access:</h4>
+    <p>
+     The username <strong>%username</strong> has been claimed.  If you are
+     <strong>%username</strong>, please enter your Delancey password now.  If
+     you have lost your password, please <a
+     href="$site_info.project_url/claim/choose/%username/">renew your claim</a>.
+    </p>
+
+    <form id="delancey-password-form" method="get" action="">
+     <fieldset>
+      <label for="password">Password:</label>
+      <input id="password" class="form-text-input" type="password" name="password" tabindex="5"/>
+      <input id="delancey-password-submit" class="form-submit" 
+             type="submit" value="Submit"/>
+      <input id="delancey-password-cancel" class="form-submit" 
+             type="reset" value="Cancel"/>
+     </fieldset>
+    </form>
+   </div>
+
+   <div id="welcome">
+    <h4>Welcome to Delancey!</h4>
+    <p>
+     Delancey is a <a href="http://del.icio.us/">del.icio.us</a>
+     enhancement.
+    </p>
+ 
+    <p>
+     Please start by entering your del.icio.us username below.
+    </p>
+
+    <p>
+     <a href="http://www.unto.net/unto/work/delancey/">Learn more about 
+     Delancey</a>.
+    </p>
+   </div>
+   <div id="bookmarks"></div>
+  </div>
+
+  <div id="footer">
+
+   <div id="message-box" class="notice-message">Loading application...</div>
+
+   <form autocomplete="off" id="login-form" method="get" action="$site_info.project_url/start">
+    <fieldset>
+     <label id="username-label" for="username" class="form-text-label">Name:</label>
+     <input id="username" name="username" type="text" 
+            class="form-text-input"
+            value=""  tabindex="2" />
+     <label id="tag-label" for="tag" class="form-text-label">Tag:</label>
+     <input id="tag" name="tag" type="text" class="form-text-input" 
+            value="" tabindex="3" />
+     <span class="links"> 
+      <a id="clear" href="javascript:DelanceyApplication.getInstance().clear()" 
+         title="Logout/clear">Clear</a> 
+      <span class="divider">|</span>
+      <a id="claim" title="Claim this username"
+        href="$site_info.project_url/claim/choose/">Claim</a> 
+      <span class="divider">|</span>
+      <a href="http://www.unto.net/unto/work/delancey/" 
+         title="More information about Delancey">Help</a>
+      <span class="divider">|</span>
+      <a id="permalink" href="" title="Bookmarkable link back to this page">Permalink</a> 
+      <span class="divider">|</span>
+      <span id="bookmarklet" title="Drag this link to your toolbar.">Delancey It!</span> 
+     </span>
+    </fieldset>
+   </form>
+
+   <div class="copyright">
+    Except where otherwise noted all portions of this site are
+    Copyright &copy; 2005 <a href="http://www.unto.net/" title="DeWitt Clinton">DeWitt
+    Clinton</a> and are provided under a <a
+    href="http://creativecommons.org/licenses/by-sa/2.5/" title="Creative Commons">Creative
+    Commons</a> License.
+   </div>
+
+  </div>
+
+ </body>
+</html>

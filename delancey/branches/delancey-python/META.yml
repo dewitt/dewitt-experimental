@@ -1,0 +1,26 @@
+---
+name: Unto-Delancey
+version: 0.1
+author: ~
+abstract: ~
+license: perl
+requires:
+  Apache2::RequestRec: 2.000002
+  Apache::Test: 1.25
+  Digest::MD5: ''
+  JSON: ''
+  Template: 2.14
+  Unto::Essex: 0.11
+  XML::Dumper: ''
+  YAML: ''
+provides:
+  Unto::Delancey:
+    file: lib/Unto/Delancey.pm
+    version: 0.1
+  Unto::Delancey::Build:
+    file: lib/Unto/Delancey/Build.pm
+  Unto::Delancey::ContentService:
+    file: lib/Unto/Delancey/ContentService.pm
+  Unto::Delancey::DelanceyService:
+    file: lib/Unto/Delancey/DelanceyService.pm
+generated_by: Module::Build version 0.261

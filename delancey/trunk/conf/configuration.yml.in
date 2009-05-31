@@ -1,0 +1,114 @@
+services:
+  - name: logger
+    class: Unto::Essex::StderrLogService
+    factory: Unto::Essex::SingletonFactory
+  - name: dispatcher
+    class: Unto::Essex::RestDispatcher
+    singleton: true
+  - name: template
+    class: Unto::Essex::TemplateToolkitService
+    pool-max: 50
+  - name: database
+    class: Unto::Essex::DatabaseService
+    pool-max: 50
+  - name: cache
+    class: Unto::Essex::CacheService
+  - name: url
+    class: Unto::Essex::UrlService
+  - name: xslt
+    class: Unto::Essex::XsltService
+  - name: site-info
+    class: Unto::Essex::SiteInfoService
+    singleton: true;
+  - name: delancey
+    class: Unto::Delancey::DelanceyService
+  - name: content
+    class: Unto::Delancey::ContentService
+
+
+dispatcher:
+  dispatchers:
+    - path: /
+      service: delancey
+      description: Redirect to start page.
+      get-handler: get_redirect
+    - path: /content/[page]
+      service: content
+      description: Display template driven content.  Not used.
+      get-handler: get_content
+    - path: /start/[username?]/[tag?]
+      service: delancey
+      description: >
+        Load the primary start page for a Delancey user.  Will set username
+        and tag cookies if requested in the URL.
+      get-handler: get_startpage
+    - path: /tags/[username]
+      service: delancey
+      description: >
+        Get tags for the given username.  Requires a delancey-password cookie
+        with a password hash if the username has been claimed.  Accepts 
+        format=[json,xml,yml].
+      get-handler: get_tags
+    - path: /bookmarks/[username]/[tag]
+      service: delancey
+      get-handler: get_bookmarks
+      description: >
+        Return the corresponding bookmark hash.  Requires a delancey-password 
+        cookie with a password hash if the username has been claimed.  Accepts 
+        format=[json,xml,yml].
+    - path: /increment/[username_hash]/[url_hash]
+      service: delancey
+      post-handler: post_increment
+      description: >
+        Update the count on the given bookmark.   Requires a delancey-password 
+        cookie with a password hash if the username has been claimed. 
+    - path: /shortname/[username_hash]/[url_hash]/[shortname?]
+      service: delancey
+      post-handler: post_shortname
+      description: >
+        Modify the metadata for a bookmark.   Requires a delancey-password 
+        cookie with a password hash if the username has been claimed. 
+    - path: /api/
+      service: site-info
+      get-handler: get_api_html
+      description: Return this list of web service API calls
+    - path: /claim/choose/[username]/
+      service: delancey
+      get-handler: choose_password
+      description: If claim hasn't been made yet, send the user to this page.
+    - path: /claim/verify/[username]/
+      service: delancey
+      post-handler: verify_claim
+      description: Pick the password and give them a claim redirect.
+    - path: /claim/complete/[username]/[claim_hash]
+      service: delancey
+      get-handler: complete_claim
+      description: If verified, set the password and delete the claim.
+
+ 
+delancey:
+  page_expiration: 60
+  claim_expiration: 900
+
+site-info:
+  site-name: @SiteName@
+  project-root: @ProjectRoot@
+  project-name: @ProjectName@
+
+cache:
+  namespace: delancey
+  default_expires_in: 5 minutes
+
+url:
+  useragent: Delancey (http://delancey.unto.net/)
+  timeout: 60
+
+template:
+  basedir: @ProjectRoot@/templates
+  compile-dir: /tmp/template-toolkit/
+
+database:
+  datasource: DBI:mysql:database=@ProjectName@
+  username: @ProjectName@
+  auth: @ProjectName@
+

@@ -1,0 +1,507 @@
+/*
+ * Main Page 
+ */
+
+html
+{
+  padding: 0px;
+  margin: 0px;
+  overflow: none;
+}
+
+body
+{
+  font-size: 75%; /* Resets 1em to 12px */
+  font-family: 'Lucida Grande', Verdana, Arial, Helvetica, Sans-Serif;
+  color: #222222;
+  background-color: #FFFFFF;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  overflow: none;
+}
+
+ol, ul, li, a, span, div, fieldset, form
+{
+   padding: 0px;
+   margin: 0px;
+   width: auto;
+   border: none;
+}
+
+img
+{
+  border: none;
+}
+
+a
+{
+ color: #444444;
+ text-decoration: underline;
+ cursor: pointer;
+}
+
+a:hover
+{
+  color: #999999;
+}
+
+a:active
+{
+  color: #000000;
+}
+
+h3
+{
+  display: block;
+  font-size: 1.4em;
+}
+
+h4
+{
+  display: inline;
+  font-size: 1.2em;
+}
+
+/*
+ * Header
+ */
+
+#header
+{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: auto;
+  width: 100%;
+  background-color: #FFFFFF;
+  text-align: center;
+} 
+
+#header form fieldset
+{
+  border: none;
+}
+
+#header form fieldset img
+{
+  vertical-align: middle;
+}
+
+.form-submit
+{
+  font-size: 1.1em;
+  border: 1px solid #333333;
+  padding: 0px 0px 0px 3px;
+  margin: 1px;  
+}
+
+.form-submit:hover
+{
+  background-color: #DDDDDD;
+}
+
+
+
+/*
+ * Content
+ */
+
+#content
+{
+  width: 100%;
+  position: absolute;
+  overflow: auto;
+  left: 0px;
+  text-align: center;
+  background-color: #FFFFFF;
+} 
+
+#welcome
+{
+  text-align: left;
+  border: 1px solid #44AA44;
+  background-color: #EEEEEE;
+  padding: 20px;
+  font-size: 1.2em;
+  width: 50%;
+  position: absolute; 
+  left: 25%; 
+  top: 25%;
+  display: none;
+}
+
+
+/* Bookmarks */
+
+#bookmarks
+{
+  text-align: left;
+  padding-top: 10px;
+  font-size: 1.2em;
+  min-width: 50%;
+  max-width: 80%;
+  width: auto;
+  width:expression( "80%" );
+  margin: 0px auto;
+}
+
+#bookmarks ul
+{
+  float: left; 
+  width: 33%; 
+}
+
+#bookmarks ul li
+{
+  text-align: left;
+  display: block;
+  margin-bottom: 20px;
+  overflow: none;
+}
+
+#bookmarks ul li a
+{
+  text-decoration: none
+}
+
+#bookmarks ul li a:hover
+{
+  text-decoration: underline
+}
+
+.info-span
+{
+  display: block;
+}
+ 
+.count
+{
+  margin-right: 3px;
+  font-size: .75em;
+  color: #999999;
+  cursor: pointer;
+}
+
+.count:hover
+{
+  text-decoration: underline;
+}
+
+.last-clicked
+{
+  margin-left: 3px;
+  font-size: .75em;
+  color: #999999;
+}
+
+
+/*
+ * Footer
+ */
+
+#footer
+{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: auto;
+  width: 100%;
+  border-top: 1px solid #AAAAAA;
+  background-color: #DDDDDD;
+  text-align: left;
+} 
+
+#message-box
+{
+  display: block;
+  margin: 1px 0px 1px 2px;
+  border: 1px solid #AAAAAA;
+  background-color: #EEEEEE;
+  padding: 2px 0px 2px 4px;
+  overflow: none;
+}
+
+.error-message
+{
+  color: #FF3333;
+}
+
+.notice-message
+{
+  color: #33AA33;
+}
+
+.instruction-message
+{
+  color: #3333FF;
+}
+
+
+#footer form 
+{
+  background-color: #EEEEEE;
+  margin: 1px 0px 1px 2px;
+  border: 1px solid #AAAAAA;
+  padding: 2px 0px 2px 4px;
+}
+
+#footer form fieldset
+{
+}
+
+#footer form fieldset div
+{
+  display: inline;
+  width: 100%;
+}
+
+.form-text-input
+{
+  font-size: 1.1em;
+  border: 1px solid #333333;
+  padding: 1px 0px 1px 3px;
+  margin: 1px;
+}
+
+.form-text-label
+{
+  font-family: "Times New Roman", "New Century Schoolbook", serif;
+  font-variant: small-caps;
+}
+
+.autocomplete
+{
+  cursor: pointer;
+  text-align: left;
+  background-color: #FFFFFF;
+  border: 1px solid #333333;
+  z-index: 4;
+  opacity: .8;
+  filter: alpha(opacity=80);
+  
+}
+
+.autocomplete ul
+{
+  padding: 0px;
+  margin: 0px;
+}
+
+.autocomplete ul li
+{
+  display: block;
+  padding: 1px 0px 2px 5px;
+  border-bottom: 1px solid #DDDDDD;
+  color: #333333;
+}
+
+.autocomplete-selected
+{
+  background-color: #CCEEEE;
+}
+
+.links
+{
+  display: inline;
+  margin: 4px;
+}
+
+.divider
+{
+  color: #AAAAAA;
+  margin: 0px 3px 0px 3px;
+}
+
+.copyright
+{
+  display: block;
+  margin: 1px 0px 1px 2px;
+  font-family: "Times New Roman", "New Century Schoolbook", serif;
+  font-size: 1em;
+  text-align: center;
+}
+
+.centered
+{
+  height: 50%; 
+  width: 50%;
+  position: absolute; 
+  left: 25%; 
+  top: 25%;
+}
+
+.claimed-accepted
+{
+  color: #449944;
+}
+
+.claimed-denied
+{
+  color: #994444;
+}
+
+.claimed
+{
+  color: #444444;
+}
+
+#password-dialog
+{
+  text-align: left;
+  border: 1px solid #AA4444;
+  background-color: #EEEEEE;
+  padding: 20px;
+  font-size: 1.2em;
+  width: 50%;
+  position: absolute; 
+  left: 25%; 
+  top: 25%;
+  display: none;
+}
+
+
+/*
+ * Debug
+ */
+
+#debug
+{
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  border: 1px solid #FF0000;
+  background-color: #FFFFFF;
+  color: #FF0000;
+}
+
+
+/*
+ * Claims Pages
+ */
+
+.explanation
+{
+  text-align: left;
+  min-width: 50%;
+  max-width: 80%;
+  width:expression("80%");
+  margin: 10px auto 10px auto;
+  border: 1px solid #AAAAAA;
+  padding: 5px 5px 5px 10px;
+  background-color: #DDDDFF;
+  font-size: 1.2em;
+}
+
+.note
+{
+  text-align: left;
+  min-width: 50%;
+  max-width: 80%;
+  width:expression("80%");
+  margin: 10px auto 10px auto;
+  border: 1px solid #AAAAAA;
+  padding: 5px 5px 5px 10px;
+  background-color: #FFDDDD;
+}
+
+.tasks
+{
+  text-align: left;
+  min-width: 50%;
+  max-width: 80%;
+  width:expression("80%");
+  margin: 10px auto 10px auto;
+  border: 1px solid #AAAAAA;
+  padding: 5px 5px 5px 10px;
+  background-color: #DDFFDD;
+}
+
+.task
+{
+  border: 1px solid #CCCCCC;
+  padding: 5px 5px 5px 5px;
+  margin-bottom: 5px;
+
+}
+
+.active-task
+{
+  color: #222222;
+  background-color: #FFFFFF;
+  font-size: 1.2em;
+}
+
+.completed-task
+{
+  color: #222222;
+  background-color: #EEEEEE;
+}
+
+.disabled-task
+{
+  color: #666666;
+  background-color: #EEEEEE;
+}
+
+
+#choose-password fieldset
+{
+  margin: 5px 0px 5px 5px;
+  padding: 10px;
+  width: 100%;
+}
+
+#choose-password fieldset label 
+{
+  float: left;
+  text-align: right;
+  margin-top: 10px;
+  padding-right: 3px;
+  width: 10em;
+}
+
+#choose-password fieldset input
+{
+  margin-top: 10px;
+}
+
+#choose-password-submit
+{
+  margin-left: 11em;
+}
+        
+#verify-password-submit
+{
+  margin: 20px 0px 10px 25px;
+}
+        
+#delete-claim-submit
+{
+  margin: 20px 0px 10px 25px;
+}
+
+.return-link
+{
+  color: #222222;
+  background-color: #EEEEEE;
+  font-size: .95em;
+  display: block;
+  width: 9.5em;
+  margin: 20px 0px 10px 25px;
+  border: 1px solid #333333;
+  padding: 1px 0px 1px 3px;
+  text-decoration: none;
+}
+
+.return-link:hover
+{
+  background-color: #DDDDDD;
+  color: #222222;
+}
+
+.validation
+{
+  padding: 2px 0px 2px 2px;
+}

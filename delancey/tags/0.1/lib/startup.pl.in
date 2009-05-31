@@ -1,0 +1,4 @@
+
+use lib qw( @ServerRoot@/@ProjectName@/lib );
+
+1;

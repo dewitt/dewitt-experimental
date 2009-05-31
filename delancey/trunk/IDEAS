@@ -1,0 +1,15 @@
+
+A Greasemonkey script (or browser plugin) that periodically retrieves
+a list of all bookmarked URL hashes and sends Delancey an increment
+POST every time one of those sites is visitied.  Disables outbound
+link tracking on Delancey.
+
+A Greasemonkey script that displays bookmark counts and performs outbound
+link tracking on the del.icio.us site.
+
+Store bookmarks locally for people without del.icio.us accounts.
+
+Furl support.
+
+Orchard support for logins.
+
